@@ -16,6 +16,7 @@ class Hospital(models.Model):
     isolation_beds = models.IntegerField(default=0)
     lat = models.FloatField(null=True, blank=True)
     long = models.FloatField(null=True, blank=True)
+    gmaps_link = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
@@ -25,4 +26,8 @@ class Hospital(models.Model):
             location = geolocator.geocode(self.address)
             self.lat = location.latitude
             self.long = location.longitude
+        
+        if not self.gmaps_link and (self.lat and self.long):
+            self.gmaps_link = 'https://www.google.com/search?q={},{}'.format(self.lat, self.long)
+
         return super().save(*args, **kwargs)
