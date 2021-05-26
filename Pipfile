@@ -12,6 +12,7 @@ coreapi = "*"
 djangorestframework = "*"
 geopy = "*"
 gunicorn = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.8"

@@ -56,8 +56,8 @@ class ChatbotViewSet(viewsets.ModelViewSet):
             Lists all nearby hospital from the database via chatbot.
 
             Query Params:
-                location: Location for searching nearby hospitals.
-                kilometer: Kilometer distance for searching nearby hospitals.
+                (required) @location: Location for searching nearby hospitals.
+                (required) @kilometer: Kilometer distance for searching nearby hospitals.
 
             Returns:
                 This returns an array of nearby hospitals object.
