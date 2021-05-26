@@ -1,0 +1,1 @@
+web: gunicorn api_hospital_tracker.wsgi

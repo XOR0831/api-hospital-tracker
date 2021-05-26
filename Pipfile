@@ -11,6 +11,7 @@ django-heroku = "*"
 coreapi = "*"
 djangorestframework = "*"
 geopy = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
