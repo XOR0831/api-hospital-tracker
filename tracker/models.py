@@ -21,7 +21,8 @@ class Hospital(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        location = geolocator.geocode(self.address)
-        self.lat = location.latitude
-        self.long = location.longitude
+        if not self.lat and not self.long:
+            location = geolocator.geocode(self.address)
+            self.lat = location.latitude
+            self.long = location.longitude
         return super().save(*args, **kwargs)
