@@ -66,7 +66,7 @@ class ChatbotViewSet(viewsets.ModelViewSet):
                 ValueError: Raises an exception if location param is not provided.
         """
         location = geolocator.geocode(request.GET.get('location'))
-        threshold = int(request.GET.get('kilometer'))
+        threshold = float(request.GET.get('kilometer'))
 
         nearest_hospitals_id = []
         hospitals = Hospital.objects.all()
